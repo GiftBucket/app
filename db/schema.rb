@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219005725) do
+ActiveRecord::Schema.define(version: 20170219031327) do
 
   create_table "buckets", force: :cascade do |t|
     t.datetime "expires"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170219005725) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "urlId"
   end
 
   create_table "donations", force: :cascade do |t|

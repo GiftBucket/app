@@ -5,12 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :donations
   has_many :memberships
-
-  after_initialize :init
-
-  def init
-    self.balance = 0.00
-  end
+  has_many :communities, through: :memberships
 
   def get_communities()
     communities = []
@@ -20,7 +15,15 @@ class User < ApplicationRecord
     return communities
   end
 
-  def get_balance()
-
+  def get_largest_donation()
+    if self.donations.count == 0
+      return 0
+    end
+    return self.donations.maximum('amount')
   end
+
+  def get_number_of_donations()
+    return self.donations.count
+  end
+
 end

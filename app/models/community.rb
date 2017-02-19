@@ -12,4 +12,14 @@ class Community < ApplicationRecord
     end
     return active_buckets
   end
+
+  def get_leaderboard()
+    leaderboard = []
+    self.users.each do |user|
+      scoreItem = {:donations => user.get_number_of_donations, :max => user.get_largest_donation, :user => user}
+      leaderboard.push(scoreItem)
+    end
+    sortedLeaderboard = leaderboard.sort_by { |hsh| hsh[:max] }
+    return sortedLeaderboard
+  end
 end

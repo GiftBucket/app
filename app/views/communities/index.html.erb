@@ -4,6 +4,7 @@
 <ul>
 <% community.get_active_buckets.each do |bucket| %>
 <li><p><b><%= bucket.charity.title %></b> - Expires <%= bucket.expires %></p></li>
+<a href="#" onclick="donate(100.0,'<%= bucket.id %>')">Donate</a>
 <% end %>
 </ul>
 <% end %>
