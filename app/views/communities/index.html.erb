@@ -13,7 +13,7 @@
   <div class  = "row">
     <% community.get_active_buckets.each do |bucket| %>
     <div class="col-xs-12 col-md-6 col-lg-4">
-      <div class="card">
+      <div class="card" id="<%= bucket.id %>">
         <div class="view overlay hm-white-slight waves-effect">
           <img src="<%= bucket.charity.image %>" class="img-fluid" alt="" style="max-width: 100%; max-height: 256px; margin: auto">
           <a href="#"> <div class="mask"></div> </a>
@@ -38,7 +38,7 @@
               </div>
 
               <div class="md-form form-group">
-                <a href="#" class="btn btn-outline-primary">Donate</a>
+                <button onclick="sendData(this)" class="btn btn-outline-primary">Donate</button>
               </div>
             </form>
             <h4><strong>Bucket expires in: </strong><span><%= (bucket.expires - DateTime.current).to_i / 1.day %></span> days</h4>
@@ -52,3 +52,28 @@
     <% end %>
 
   </div>
+  <script>
+
+    $('form').submit(function(e) {
+      e.preventDefault();
+    });
+    function sendData(btn) {
+      var cardID = $(btn).parent().parent().parent().parent().parent().attr('id');
+      var amt = $('#'+cardID+' input').val();
+      $('#'+cardID+' input').hide();
+      $(btn).removeClass('btn-outline-primary').addClass('btn-success').html('<i class="fa fa-check left"></i>Donated').css('pointer-events', 'none');
+      var data = {
+        bucket_id: cardID,
+        amount: amt
+      }
+      $.ajax({
+        type: "POST",
+        url: '/donations',
+        data: data,
+        success: function(res) {
+          console.log(res);
+        },
+        dataType: 'json'
+      });
+    }
+  </script>

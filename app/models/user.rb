@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :communities, through: :memberships
 
-  Config.apiKey = ""
+  Config.apiKey = "0e44feb4f2208d592e19b514f943edde"
 
   def get_communities()
     communities = []
@@ -49,7 +49,7 @@ class User < ApplicationRecord
       "desciption": "donation"
     }
     withdrawalToCreate = withdrawalHash.to_json
-    url = "http://api.reimaginebanking.com/accounts/" + account["_id"] + "/withdrawals?key=0e44feb4f2208d592e19b514f943edde"
+    url = "http://api.reimaginebanking.com/accounts/" + account["_id"] + "/withdrawals?key=" + Config.apiKey
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' => 'application/json'})
