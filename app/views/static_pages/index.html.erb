@@ -1,1 +1,38 @@
-<h1>Thicc Sneccs</h1>
+<html>
+  <head>
+    <title>GiftBucket | Give Progress</title>
+  </head>
+
+  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <div id="particles-js"></div>
+    <div class="container overlay">
+      <div class="col-xs-12 text-center">
+        <a href="/users/sign_up">
+          <img id="cover-image" src="img/earth.svg"></img>
+        </a>
+      </div>
+      <div class="row text-center">
+        <h1 style="color: white; font-size: 80px; display: none"><br>GiftBucket</h1>
+        <h2 style="color: white; font-size: 40px; display: none">Give Progress</h2>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" crossorigin="anonymous"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js" crossorigin="anonymous"></script>
+    <script>
+      particlesJS.load('particles-js', 'js/particlesjs-config.json');
+      $(function() {
+        $('#cover-image').css('opacity', '1');
+        $('h1').delay(1000).fadeIn(1000, function() {
+          $('h2').fadeIn(1000);
+        });
+      });
+    </script>
+  </body>
+</html>

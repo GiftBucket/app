@@ -1,4 +1,7 @@
 class DonationsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def create
     if user_signed_in
       amount = params[:amount]
@@ -19,5 +22,16 @@ class DonationsController < ApplicationController
     else
       render json: {"error" => 1, "msg" => "Error: user not signed in"}
     end
+  end
+
+  def account
+    acc = current_user.get_bank_details
+    render json: acc
+  end
+
+  def add_balance
+    amount = params[:amount].to_f
+    addtobal = current_user.add_to_balance(amount)
+    render json: {"error" => 0, "msg" => "Success", "balance" => current_user.balance}
   end
 end

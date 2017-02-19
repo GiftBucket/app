@@ -1,1 +1,30 @@
-<h1>No communities</h1>
+<div id="comms" style="display: none" class="col-xs-12 col-m-12 col-lg-10 col-lg-push-1">
+  <h1 class="text-center" style="padding: 2em">Pick your communities</h1>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-paint-brush fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Arts, Culture, Humanities</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-male fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Community Development</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-graduation-cap fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Education</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-tree fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Environment</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-heart fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Health</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-child fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Human and Civil Rights</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-users fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Human Services</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-plane fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>International</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="fa fa-book fa-4x fa-fw" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Research and Public Policy</span></a></div>
+  <div class="col-lg-3 col-xs-6"><a class="pick com-panel btn btn-outline-secondary waves-effect"> <i class="glyphicon glyphicon-star" style="font-size: 30px; vertical-align: middle; position: relative; top: 10px"></i> <br><span>Religion</span></a></div>
+  <div class="col-xs-12 text-center">
+    <div style="height: 5em"></div>
+    <button id="submit-button" class="btn btn-default">Proceed<i class="fa fa-arrow-right right"></i></button>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('#submit-button').hide();
+    $('h1').fadeIn(1000, function(){
+      $('#comms').fadeIn(1500);
+    });
+    $('.pick').on('click', function() {
+      $(this).removeClass('btn-outline-secondary').addClass('btn-outline-success');
+      $('#submit-button').fadeIn(1000);
+    });
+  });
+</script>

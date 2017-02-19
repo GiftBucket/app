@@ -1,0 +1,161 @@
+#navbar {
+  height: 80px;
+  background-color: #FAFAFA;
+  border-bottom: 1px solid grey;
+}
+
+#navbar-header {
+  position: relative;
+  top: 0.75em;
+  left: 1em;
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+.dropdown-item {
+  position: relative;
+  font-size: 15px;
+  left: 20%;
+  color: black;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 2em 5em 0px 2em;
+}
+
+.dropdown-menu {
+  top: 5em;
+  min-width: 200px;
+}
+
+.btn-round {
+  border-radius: 99em;
+}
+
+#user-button {
+  position: relative;
+  left: 80%;
+}
+
+#menu-panel {
+  position: relative;
+  right: 1em;
+  top: 0em;
+  background-color: red;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+#communities-button {
+  top: 0.9em;
+  height: 40px;
+}
+
+.user-menu {
+  top: 0.5em;
+}
+
+.com-panel {
+  height: 120px;
+  width: 180px;
+  background-color: white;
+}
+
+.com-panel span{
+  position: relative;
+  top: 20px;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.extended-menu {
+  background-color: #ECEFF1;
+  width: 200%;
+}
+
+.card-block {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 5px solid rgba(255,0,255,0);
+  border-width: 0 10px 5px 10px;
+}
+
+#sucard {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 20px solid transparent;
+}
+
+.card-text {
+  font-size: 17px;
+}
+
+.active-bucket {
+  border-top: 1px solid grey;
+}
+
+.leaderboard-nav {
+  top: 1em;
+  height: 89%;
+  box-shadow: 5px 5px 10px -5px #333;
+  position: relative;
+  left: -24%;
+
+}
+
+.leaderboard-nav td{
+  color: black;
+  position: relative;
+  left: 5%;
+  top: 2%;
+  width: 100%;
+  min-height: 50px;
+}
+
+.leaderboard-nav tr {
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+}
+
+.leaderboard-nav tr:hover {
+  background-color: #2BBBAD;
+  color: white;
+}
+
+.leaderboard-nav td:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#particles-js {
+  background: #4b3059; /* Old browsers */
+  background: -moz-linear-gradient(top, #4b3059 4%, #360e49 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #4b3059 4%,#360e49 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #4b3059 4%,#360e49 100%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  position: relative;
+  z-index: 5;
+}
+
+#cover-image {
+  padding-top: 15%;
+  padding-bottom: 10%;
+  width: 40%;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+}
+
+#cover-image svg {
+  fill: green;
+}

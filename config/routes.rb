@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
   get '/communities', to: 'communities#index'
   get '/communities/:id', to: 'communities#display'
-  resources :memberships
+  get '/memberships/', to: 'memberships#index'
+  get '/joincommunity/:id', to: 'memberships#create'
+  get '/accountdetails', to: 'donations#account'
+  get '/addtobalance/:amount', to: 'donations#add_balance'
   resources :communities
   resources :charities
   resources :profiles
   resources :leaderboards
+  resources :donations
 end

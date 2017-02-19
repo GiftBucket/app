@@ -1,5 +1,51 @@
-<h1><%= @community.title %></h1>
-<% @community.get_all_buckets.each do |bucket| %>
-  <h4><%= bucket.charity.title %></h4>
-  <p>Expires <%= bucket.expires %></p>
-<% end %>
+<div class="col-xs-12 col-m-12 col-lg-10 col-lg-push-1">
+  <div class = "row">
+    <div class = "col-xs-12 text-center">
+      <h1><%= @community.title %></h1>
+    </div>
+    <div class = "col-xs-12 text-center">
+      <a href="/leaderboards/<%= @community.urlId %>" class="btn btn-outline-default waves-effect"><i class="fa fa-diamond left"></i>Top Donors</a>
+      <button class="btn btn-outline-default waves-effect"><i class="fa fa-star left"></i>Follow</button>
+    </div>
+  </div>
+  <br>
+  <div class  = "row">
+    <% @community.get_active_buckets.each do |bucket| %>
+    <div class="col-xs-12 col-md-6 col-lg-4">
+      <div class="card">
+        <div class="view overlay hm-white-slight waves-effect">
+          <img src="<%= bucket.charity.image %>" class="img-fluid" alt="" style="max-width: 100%; max-height: 256px; margin: auto">
+          <a href="#"> <div class="mask"></div> </a>
+        </div>
+        <div class="card-block">
+          <h3 class="card-title text-center"><%= bucket.charity.title %></h3>
+          <p class="card-text"><%= bucket.charity.description %></p>
+          <div class="active-bucket">
+            <table style="width: 100%" class>
+              <tr class="text-center">
+                <td><h4><strong>690</strong></h4></td>
+                <td><h4><strong>9001</strong></h4></td>
+              </tr>
+              <tr class="text-center">
+                <td><h4>donated</h4></td>
+                <td><h4>raised</h4></td>
+              </tr>
+            </table>
+            <form class="text-center">
+              <div class="md-form form-group" style="width: 50%; left: 25%">
+                <input type="text" class="form-control text-center" value="1.00" maxlength="6" size="6" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46'></input>
+              </div>
+
+              <div class="md-form form-group">
+                <a href="#" class="btn btn-outline-primary">Donate</a>
+              </div>
+            </form>
+            <h4><strong>Bucket expires in: </strong><span><%= (bucket.expires - DateTime.current).to_i / 1.day %></span> days</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+      <div style="height: 20px"></div>
+    </div>
+  </div>

@@ -1,4 +1,49 @@
-<h1><%= @community.title %> Leaderboards</h1>
-<% @leaderboard.reverse.each do |scoreItem| %>
-<p>User: <%= scoreItem[:user].name %>, Max Donation: <%= scoreItem[:max] %>, Num Donations: <%= scoreItem[:donations] %></p>
-<% end %>
+
+<style>
+  #leader-table a {
+    color: black;
+    transition: all 0.1s ease-in-out;
+  }
+
+  #leader-table a:hover {
+    color: #2BBBAD;
+  }
+</style>
+
+<div class="col-xs-2">
+  <table class="table leaderboard-nav text-center">
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/arts'">Arts, Culture, Humanities</td></a></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/community'">Community Development</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/education'">Education</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/environment'">Environment</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/health'">Health</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/rights'">Human and Civil Rights</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/humans'">Human Services</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/international'">International</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/research'">Research and Public Policy</td></tr>
+    <tr><td class="text-center" onclick="window.location.href='/leaderboards/religion'">Religion</td></tr>
+  </table>
+</div>
+
+<div class="col-xs-10">
+  <h1 class="text-center"><%= @community.title %> Leaderboard</h1>
+  <table id="leader-table" class="table table-hover table-striped" style="position: relative; top: 2em">
+    <tr>
+      <th>Name</th>
+      <th class="text-center">Number of Donations</th>
+      <th class="text-right">Highest Donation</th>
+    </tr>
+
+    <% @leaderboard.reverse.each do |scoreItem| %>
+
+
+    <tr>
+      <td> <a href="#"><%= scoreItem[:user].name %></a></td>
+      <td class="text-center"><%= scoreItem[:donations] %></td>
+      <td class="text-right">$<%= scoreItem[:max] %></td>
+    </tr>
+
+    <% end %>
+
+  </table>
+</div>
