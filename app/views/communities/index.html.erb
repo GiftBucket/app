@@ -1,0 +1,9 @@
+<h1>Buckets from my communities</h1>
+<% @communities.each do |community| %>
+<h3><%= community.title %></h3>
+<ul>
+<% community.get_active_buckets.each do |bucket| %>
+<li><p><b><%= bucket.charity.title %></b> - Expires <%= bucket.expires %></p></li>
+<% end %>
+</ul>
+<% end %>
