@@ -4,8 +4,4 @@ class StaticPagesController < ApplicationController
 			redirect_to(communities_url)
 		end
 	end
-
-	def join_communities
-
-	end
 end

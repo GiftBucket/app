@@ -1,0 +1,5 @@
+<h1><%= @community.title %></h1>
+<% @community.get_all_buckets.each do |bucket| %>
+  <h4><%= bucket.charity.title %></h4>
+  <p>Expires <%= bucket.expires %></p>
+<% end %>

@@ -6,9 +6,7 @@ class CommunitiesController < ApplicationController
     @communities = current_user.get_communities
   end
   def display
-    commmunity = params[:id]
-    if community == "environment"
-      
-    end
+    url_id = params[:id]
+    @community = Community.find_by(urlId: url_id)
   end
 end

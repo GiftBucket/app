@@ -1,0 +1,4 @@
+<h1><%= @community.title %> Leaderboards</h1>
+<% @leaderboard.reverse.each do |scoreItem| %>
+<p>User: <%= scoreItem[:user].name %>, Max Donation: <%= scoreItem[:max] %>, Num Donations: <%= scoreItem[:donations] %></p>
+<% end %>
