@@ -30,9 +30,45 @@ class User < ApplicationRecord
     return self.donations.count
   end
 
+  def get_total_donated()
+    return Donation.where(:user_id => self.id ).sum(:amount)
+  end
+
   def get_bank_details()
     account = Account.getAllByCustomerId(self.bank_id).first
     return account
+  end
+
+  def generate_donations()
+    35.times do
+      d = Donation.new
+      b = Bucket.first(:order => "RANDOM()")
+      d.bucket = b
+      d.user = current_user
+      d.amount = rand(5...100)
+      randomMonth = rand(0...12)
+      d.save!
+      d.created_at = randomMonth.months.ago
+      d.save!
+    end
+  end
+
+  def donation_for_months()
+    self.donations.each do |donation|
+
+    end
+    for m in 0...11
+
+    end
+  end
+
+  def get_communities_str
+    str = ""
+    self.communities.each do |community|
+      str += community.title + ','
+    end
+    str = str[0...-1]
+    return str
   end
 
   def add_to_balance(amount)

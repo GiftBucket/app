@@ -1,0 +1,43 @@
+<div class="col-xs-12 col-m-12 col-lg-10 col-lg-push-1">
+  <div class="row text-center">
+    <h1><br>Manage what you give, how you give<br><br></h1>
+  </div>
+  <div class="row">
+    <h2>Bank balance: <span id="bankbal">$<%= @account_balance %></span></h2>
+    <br>
+  </div>
+  <div class="row">
+    <h2>Account balance: <span id="accbal">$<%= @balance %></span></h2>
+    <br>
+    <div class="md-form form-group form-inline" style="width: 50%;">
+      <button id="fund-button" class="btn btn-default waves-effect">Add funds</button>
+      <input id="fundbox" type="text" class="form-control text-center" value="0.00" maxlength="6" size="22" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46'></input>
+    </div>
+    <h2><br></h2>
+  </div>
+
+  <div class="row">
+    <div class="md-form form-group form-inline" style="width: 50%;">
+      <span style="font-size: 30px; font-family: Roboto; font-weight: 300">Monthly allocation:    </span>
+      <input type="text" class="form-control text-center" value="10.00" maxlength="6" size="6" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46'></input>
+    </div>
+    <button id="set-amt" class="btn btn-default waves-effect">Set</button>
+    <h2><br></h2>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('#set-amt').on('click', function() {
+      $(this).removeClass('btn-default').addClass('btn-success').html('<i class="fa fa-check left"></i>Set').css('pointer-events', 'none');
+    });
+    $('#fund-button').on('click', function() {
+      $.get('/addtobalance/' + $('#fundbox').val(), function(data, status) {
+        console.log(data);
+        console.log(status);
+        location.reload();
+      });
+      console.log($('#fundbox').val());
+    });
+  });
+</script>

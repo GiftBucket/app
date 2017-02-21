@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get '/communities/:id', to: 'communities#display'
   get '/memberships/', to: 'memberships#index'
   get '/joincommunity/:id', to: 'memberships#create'
-  get '/accountdetails', to: 'donations#account'
-  get '/addtobalance/:amount', to: 'donations#add_balance'
+  get '/accountdetails', to: 'banking#account'
+  get '/addtobalance/:amount', to: 'banking#add_balance'
+  get '/banking', to: 'banking#index'
   resources :communities
   resources :charities
   resources :profiles
